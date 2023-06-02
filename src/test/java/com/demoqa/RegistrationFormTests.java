@@ -18,7 +18,7 @@ public class RegistrationFormTests {
 
     @BeforeAll
             static void beforeAll() {
-        open("https://demoqa.com/automation-practice-form");
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1920x1080";
@@ -26,20 +26,22 @@ public class RegistrationFormTests {
     }
     @Test
     void successTest() {
+        open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
 
         $("#firstName").setValue("Natalia");
         $("#lastName").setValue("Dolmatova");
         $("#userEmail").setValue("mail@mail.ru");
-        $(byText("Female")).click();
+        $("#genterWrapper").$(byText("Female")).click();
         $("#userNumber").setValue("9031809898");
         $("#dateOfBirthInput").click();
         $("[class*='month-select']").selectOptionByValue("1");
         $("[class*='year-select']").selectOptionByValue("1991");
         $("[class*='day--030']").click();
         $("#subjectsInput").setValue("Maths").pressEnter();
-        $(byText("Music")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/data/sample.png"));
+        $("#hobbiesWrapper").$(byText("Music")).click();
+        $("#uploadPicture").uploadFromClasspath("sample.png");
         $("#currentAddress").setValue("Moscow");
         $("#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
         $("#react-select-4-input").setValue("Agra").pressEnter();
