@@ -1,29 +1,15 @@
-package com.demoqa;
+package com.demoqa.tests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationFormTests {
+public class RegistrationFormTests extends TestBase {
 
 
-    @BeforeAll
-            static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1920x1080";
-
-    }
     @Test
     void successTest() {
         open("/automation-practice-form");
@@ -61,7 +47,6 @@ public class RegistrationFormTests {
 
 
     }
-
 
 
 }
