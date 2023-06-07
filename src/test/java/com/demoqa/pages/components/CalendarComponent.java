@@ -8,6 +8,6 @@ public class CalendarComponent {
 
         $("[class*='month-select']").selectOptionByValue(month);
         $("[class*='year-select']").selectOptionByValue(year);
-        $("[class*='day--0']" + day).click();
+        $(".react-datepicker__day--0" + day).click();
     }
 }

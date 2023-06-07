@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class ConfirmationComponent {
 
     SelenideElement
-            table = $(".table-responsive"),
+            table = $(".modal-body"),
             greeting = $("#example-modal-sizes-title-lg");
 
     public void verifyGreeting() {
