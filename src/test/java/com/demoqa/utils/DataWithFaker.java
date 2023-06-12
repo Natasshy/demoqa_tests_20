@@ -9,14 +9,14 @@ public class DataWithFaker {
 
 
     Faker faker = new Faker();
-    String subjects;
+    public String subjects;
 
     {
         subjects = faker.options().option("English", "Physics", "Chemistry", "Computer Science",
                 "Commerce", "Accounting", "Economics");
     }
 
-    String hobbies;
+    public String hobbies;
 
     {
         hobbies = faker.options().option("Music", "Sports", "Reading");
@@ -33,17 +33,17 @@ public class DataWithFaker {
     public String phoneNumber = 8 + faker.phoneNumber().subscriberNumber(9);
     Date myBirthday = faker.date().birthday();
     SimpleDateFormat sdfyear = new SimpleDateFormat("yyyy");
-    public String year = sdfyear.format(myBirthday) ;
-    SimpleDateFormat sdfmonth = new SimpleDateFormat("M",Locale.ENGLISH);
-    public String month = sdfmonth.format(myBirthday) ;
+    public String year = sdfyear.format(myBirthday);
+    SimpleDateFormat sdfmonthForRegistrationPage = new SimpleDateFormat("MM", Locale.ENGLISH);
+    SimpleDateFormat sdfmonth = new SimpleDateFormat("MMMM", Locale.ENGLISH);
+    public String monthForRegistrationPage = Integer.toString(myBirthday.getMonth());
+    public String month = sdfmonth.format(myBirthday);
     SimpleDateFormat sdfday = new SimpleDateFormat("dd");
     public String day = sdfday.format(myBirthday);
 
+    public String pictureLocation = "sample.png";
 
-
-    String pictureLocation = "1.jpeg";
-
-    String userAddress = faker.address().streetName();
+    public String userAddress = faker.address().streetName();
 
 
     Map<String, String[]> mapStateWithCity = Map.of(
@@ -52,8 +52,8 @@ public class DataWithFaker {
             "Haryana", new String[]{"Karnal", "Panipat"},
             "Rajasthan", new String[]{"Jaipur", "Jaiselmer"}
     );
-    String state = faker.options().option(mapStateWithCity.keySet().toArray()).toString();
-    String usercity = faker.options().option(mapStateWithCity.get(state));
+    public String state = faker.options().option(mapStateWithCity.keySet().toArray()).toString();
+    public String usercity = faker.options().option(mapStateWithCity.get(state));
 
 
 }
