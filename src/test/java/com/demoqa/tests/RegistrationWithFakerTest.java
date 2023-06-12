@@ -6,11 +6,6 @@ import com.demoqa.utils.DataWithFaker;
 import org.junit.jupiter.api.Test;
 
 
-import java.text.SimpleDateFormat;
-
-import static com.demoqa.utils.RandomUtils.*;
-
-
 public class RegistrationWithFakerTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
