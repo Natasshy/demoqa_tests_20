@@ -34,7 +34,7 @@ public class DataWithFaker {
     Date myBirthday = faker.date().birthday();
     SimpleDateFormat sdfyear = new SimpleDateFormat("yyyy");
     public String year = sdfyear.format(myBirthday);
-    SimpleDateFormat sdfmonthForRegistrationPage = new SimpleDateFormat("MM", Locale.ENGLISH);
+
     SimpleDateFormat sdfmonth = new SimpleDateFormat("MMMM", Locale.ENGLISH);
     public String monthForRegistrationPage = Integer.toString(myBirthday.getMonth());
     public String month = sdfmonth.format(myBirthday);
