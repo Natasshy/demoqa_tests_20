@@ -11,7 +11,7 @@ public class RegistrationWithDataProviderTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
-    @ParaterizedTest
+    @ParameterizedTest
 @DisplayName()
     void successTest() {
         DataWithFaker data = new DataWithFaker();
