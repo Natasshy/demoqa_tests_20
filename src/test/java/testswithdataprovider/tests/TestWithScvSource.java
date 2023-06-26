@@ -1,4 +1,4 @@
-package testsWithDataProviders.tests;
+package testswithdataprovider.tests;
 
 
 import org.junit.jupiter.api.DisplayName;
@@ -18,10 +18,8 @@ public class TestWithScvSource extends BaseTest {
             "Роллы, Роллы"
     })
     @DisplayName("Тест с Дата Провайдером - scvSourse")
-
     @ParameterizedTest(name = "Отображение загаловка {1} при переходе в меню по {0}")
-
-    void SiteShouldHaveValuesInCatalog(String catalogName, String products) {
+    void siteShouldHaveValuesInCatalog(String catalogName, String products) {
         open(baseUrl);
         $$(".menu-list__item").find(text(catalogName)).click();
         $(".ajax_content h1").shouldHave(text(products));

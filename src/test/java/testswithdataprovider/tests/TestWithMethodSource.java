@@ -1,4 +1,4 @@
-package testsWithDataProviders.tests;
+package testswithdataprovider.tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,17 +17,17 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TestWithMethodSource extends BaseTest {
 
-    static Stream <Arguments> SiteShouldHaveValues(){
+    static Stream <Arguments> siteShouldHaveValuesInMenu(){
         return Stream.of(
                 Arguments.of("Сасими",List.of("Сякэ", "Магуро", "Унаги")),
                 Arguments.of("Бенто-ланч",List.of("БЕНТО №1", "БЕНТО №2", "БЕНТО №3", "БЕНТО №4", "БЕНТО №5"))
         );
     }
 
-    @MethodSource
+    @MethodSource("siteShouldHaveValuesInMenu")
     @DisplayName("Тест с Дата Провайдером - MethodSourse")
     @ParameterizedTest(name = "На странице категории должны отображаться продукты/товары: {1}")
-    void SiteShouldHaveValuesInMenu(String catalogName,List<String> expectedButtons) {
+    void siteShouldHaveValuesInMenu(String catalogName,List<String> expectedButtons) {
         open(baseUrl);
         $$(".menu-list__item").findBy(text(catalogName)).click();
         $$(".catalog__title").should(texts(expectedButtons));

@@ -1,4 +1,4 @@
-package testsWithDataProviders.tests;
+package testswithdataprovider.tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,7 +13,7 @@ public class TestWithValueSource extends BaseTest {
     @ValueSource(strings = {"Суси и Гунканы", "Роллы", "Сеты"})
     @DisplayName("Тест с Дата Провайдером - ValueSourse")
     @ParameterizedTest(name = "Отображение заголовка при переходе в меню {0}")
-    void SiteShouldHaveValuesInIngridients(String item) {
+    void siteShouldHaveValuesInIngridients(String item) {
         open(baseUrl);
         $$(".menu-list__item").find(text(item)).click();
         $(".ajax_content h1").shouldHave(text(item));
