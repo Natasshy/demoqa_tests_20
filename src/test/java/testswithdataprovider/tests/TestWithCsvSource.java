@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class TestWithScvSource extends BaseTest {
+public class TestWithCsvSource extends BaseTest {
 
     @CsvSource(value = {
             "Суси и Гунканы, Суси и Гунканы",
