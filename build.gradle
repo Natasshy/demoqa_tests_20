@@ -40,7 +40,10 @@ tasks.withType(JavaCompile) {
 test {
     useJUnitPlatform()
 }
-
+test {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
 
 task remote_test(type: Test) {
     useJUnitPlatform{
