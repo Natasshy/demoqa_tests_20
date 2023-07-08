@@ -12,18 +12,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static java.lang.System.getProperty;
 
 public class RemoteTestBase {
 
     @BeforeAll
     static void beforeAll() {
-        String browser = getProperty("browser", "chrome");
-        String browserVersion = getProperty("version", "100");
-        String browserSize = getProperty("size", "1920x1080");
-        String remote = getProperty("selenoid", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        String baseUrl = getProperty("remote_url", "https://demoqa.com");
-        String pageLoadStrategy = "eager";
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.remote = System.getProperty("seleniod", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Configuration.holdBrowserOpen = true;
+        Configuration.pageLoadStrategy = "eager";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
